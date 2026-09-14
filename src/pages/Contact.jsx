@@ -1,4 +1,4 @@
-impNort usePageMeta from "../hooks/usePageMeta";
+import usePageMeta from "../hooks/usePageMeta";
 
 import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { personalInfo, socialLinks } from "../data";
