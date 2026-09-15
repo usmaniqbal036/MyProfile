@@ -72,9 +72,7 @@ export default function Projects() {
         {rest.map((p) => (
           <article key={p.id} className="surface surface-hover relative flex flex-col p-5">
             {p.inProgress && (
-              <span className="absolute right-4 top-4 rounded-full bg-primary/15 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-primary">
-                In Progress
-              </span>
+             
             )}
             <Thumb title={p.title} className="h-36" />
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">
