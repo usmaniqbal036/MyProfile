@@ -71,9 +71,7 @@ export default function Projects() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {rest.map((p) => (
           <article key={p.id} className="surface surface-hover relative flex flex-col p-5">
-            {p.inProgress && (
-             
-            )}
+            
             <Thumb title={p.title} className="h-36" />
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">
               {p.category}
