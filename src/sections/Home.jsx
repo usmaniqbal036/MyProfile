@@ -1,15 +1,12 @@
-import usePageMeta from "../hooks/usePageMeta";
-import { Link } from "react-router";
-
 import { Download, ArrowRight } from "lucide-react";
 import { personalInfo } from "../data";
 
-
 export default function Home() {
-  usePageMeta("Hafiz Muhammad Usman | Full Stack Developer", "Full Stack Developer from Lahore building fast web apps with React, Node.js, Express and MongoDB.");
-
   return (
-    <section className="container-x grid items-center gap-12 py-16 md:grid-cols-2 md:py-24">
+    <section
+      id="home"
+      className="scroll-mt-16 container-x grid items-center gap-12 py-16 md:grid-cols-2 md:py-24"
+    >
       <div className="relative order-2 mx-auto md:order-1">
         <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" />
         <div className="grid size-64 place-items-center overflow-hidden rounded-full border-4 border-primary/30 bg-card sm:size-80">
@@ -55,12 +52,12 @@ export default function Home() {
             </a>
           ) : null}
 
-          <Link
-            to="/projects"
+          <a
+            href="#projects"
             className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
           >
             View Projects <ArrowRight size={16} />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

@@ -1,9 +1,6 @@
-import usePageMeta from "../hooks/usePageMeta";
-
 import { ExternalLink, Github } from "lucide-react";
 import { Pill } from "../components/Section";
 import { projects } from "../data";
-
 
 function Thumb({ title, className = "" }) {
   return (
@@ -30,13 +27,11 @@ function IconLink({ href, label, children }) {
 }
 
 export default function Projects() {
-  usePageMeta("Projects \u2014 Hafiz Muhammad Usman", "Selected React, Node.js, Express and MongoDB projects built by Hafiz Muhammad Usman.");
-
   const featured = projects.find((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <div className="container-x py-14">
+    <div id="projects" className="scroll-mt-16 container-x py-14">
       <span className="eyebrow">Portfolio</span>
       <h1 className="mt-2 text-3xl font-bold sm:text-4xl">My Projects</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">

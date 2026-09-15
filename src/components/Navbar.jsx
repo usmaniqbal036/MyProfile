@@ -1,48 +1,77 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { personalInfo } from "../data";
 import Socials from "./Socials";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
+  { to: "home", label: "Home" },
+  { to: "about", label: "About" },
+  { to: "projects", label: "Projects" },
+  { to: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
   }, [dark]);
 
+  // Scroll-spy: highlight the nav link for the section currently in view.
+  useEffect(() => {
+    const sections = NAV.map(({ to }) => document.getElementById(to)).filter(Boolean);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e, to) => {
+    e.preventDefault();
+    const el = document.getElementById(to);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      history.pushState(null, "", `#${to}`);
+    }
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur">
       <div className="container-x flex h-16 items-center justify-between gap-4">
-        <Link
-          to="/"
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "home")}
           className="grid size-10 place-items-center rounded-xl bg-primary font-display font-bold text-primary-foreground"
         >
           {personalInfo.initials}
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map(({ to, label }) => (
-            <NavLink
+            <a
               key={to}
-              to={to}
-              end={to === "/"}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-foreground ${
-                  isActive ? "bg-secondary text-foreground" : "text-muted-foreground"
-                }`
-              }
+              href={`#${to}`}
+              onClick={(e) => handleNavClick(e, to)}
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-foreground ${
+                active === to ? "bg-secondary text-foreground" : "text-muted-foreground"
+              }`}
             >
               {label}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
@@ -68,19 +97,16 @@ export default function Navbar() {
       {open && (
         <nav className="container-x flex flex-col gap-1 pb-4 md:hidden">
           {NAV.map(({ to, label }) => (
-            <NavLink
+            <a
               key={to}
-              to={to}
-              end={to === "/"}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2 text-sm font-medium ${
-                  isActive ? "bg-secondary text-foreground" : "text-muted-foreground"
-                }`
-              }
+              href={`#${to}`}
+              onClick={(e) => handleNavClick(e, to)}
+              className={`rounded-lg px-3 py-2 text-sm font-medium ${
+                active === to ? "bg-secondary text-foreground" : "text-muted-foreground"
+              }`}
             >
               {label}
-            </NavLink>
+            </a>
           ))}
         </nav>
       )}

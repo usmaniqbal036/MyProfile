@@ -62,14 +62,7 @@ export const experience = [
     place: "Excellence Delivered (EXD) Pvt Ltd",
     duration: "Currently Enrolled",
     description:
-      "Strengthening full stack development skills with a focus on modern JavaScript, React.js, Node.js, Express and MongoDB through hands-on, project-based training.",
-  },
-  {
-    title: "Data Entry Operator",
-    place: "Hepatitis & Infection Control Program, Primary & Secondary Healthcare Department",
-    duration: "Dec 2020 — Present",
-    description:
-      "Perform accurate, high-volume data entry supporting a province-wide public health surveillance program. Analyze large datasets to identify trends and support official reporting, while coordinating with program teams under time-sensitive conditions.",
+      "MERN Stack Practice Projects(Self-Directed Learning) Practiced full-stack development using the MERN stack (MongoDB, Express, React, Node.js) by independently building and completing multiple hands-on projects. Built REST APIs and connected them to React front ends across projects such as Task Manager, Todo Messages, and the Wares E-Commerce App Practiced state management approaches, including React's Context API, across projects like the E-Commerce Shopping Cart and My Profile portfolio. Strengthened understanding of component-based architecture, CRUD workflows, and API integration through repeated, project-based practice",
   },
   {
     title: "Team Lead — Repair Wala",
@@ -77,6 +70,13 @@ export const experience = [
     duration: "Academic Project",
     description:
       "Led a small team through data gathering, front-end and back-end development of a desktop application connecting customers with doorstep home-appliance repair services. Designed core modules for service requests, technician assignment and parts tracking, with a back end built on JSP and MySQL.",
+  },
+  {
+    title: "Data Entry Operator",
+    place: "Hepatitis & Infection Control Program, Primary & Secondary Healthcare Department",
+    duration: "Dec 2020 — Present",
+    description:
+      "Perform accurate, high-volume data entry supporting a province-wide public health surveillance program. Analyze large datasets to identify trends and support official reporting, while coordinating with program teams under time-sensitive conditions.",
   },
 ];
 

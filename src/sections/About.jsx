@@ -1,5 +1,3 @@
-import usePageMeta from "../hooks/usePageMeta";
-
 import Section, { Pill, Timeline } from "../components/Section";
 import {
   aboutMe,
@@ -11,12 +9,9 @@ import {
   stats,
 } from "../data";
 
-
 export default function About() {
-  usePageMeta("About \u2014 Hafiz Muhammad Usman", "Biography, skills, experience, education and certifications of Hafiz Muhammad Usman, MERN stack developer.");
-
   return (
-    <>
+    <div id="about" className="scroll-mt-16">
       <section className="container-x grid gap-10 py-14 md:grid-cols-[1.4fr_1fr]">
         <div>
           <span className="eyebrow">Biography</span>
@@ -81,6 +76,6 @@ export default function About() {
           ))}
         </div>
       </Section>
-    </>
+    </div>
   );
 }

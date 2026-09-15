@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { personalInfo } from "../data";
 import Socials from "./Socials";
 
@@ -12,9 +11,17 @@ export default function Footer() {
         <Socials />
         <span>
           Built with ♡ by {personalInfo.name} —{" "}
-          <Link to="/contact" className="font-medium text-primary hover:underline">
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              history.pushState(null, "", "#contact");
+            }}
+            className="font-medium text-primary hover:underline"
+          >
             Say Hello
-          </Link>
+          </a>
         </span>
       </div>
     </footer>

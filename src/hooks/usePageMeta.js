@@ -12,6 +12,5 @@ export default function usePageMeta(title, description) {
       }
       tag.setAttribute("content", description);
     }
-    window.scrollTo(0, 0);
   }, [title, description]);
 }

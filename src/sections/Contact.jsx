@@ -1,8 +1,5 @@
-import usePageMeta from "../hooks/usePageMeta";
-
 import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { personalInfo, socialLinks } from "../data";
-
 
 const CARDS = [
   {
@@ -43,10 +40,8 @@ function IconCircle({ Icon }) {
 }
 
 export default function Contact() {
-  usePageMeta("Contact \u2014 Hafiz Muhammad Usman", "Get in touch with Hafiz Muhammad Usman for full stack development work, collaboration or a quick chat.");
-
   return (
-    <div className="container-x py-14">
+    <div id="contact" className="scroll-mt-16 container-x py-14">
       <div className="max-w-2xl">
         <span className="eyebrow">Get In Touch</span>
         <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Let's Connect</h1>
